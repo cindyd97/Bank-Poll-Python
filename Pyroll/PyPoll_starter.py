@@ -31,13 +31,14 @@ with open(file_to_load) as election_data:
         # Print a loading indicator (for large datasets)
         print(". ", end="")
 
-       
+       # store total votes for later calculation
         all_votes.append(row[2])
         votes.append(row[0])
     total_votes = len(votes)
 
 
-
+#count votes of each candidate
+#Stockham
      
     for i in all_votes:
         if i == 'Charles Casper Stockham':
@@ -45,21 +46,21 @@ with open(file_to_load) as election_data:
     total_stockham = len(stockham)
     percent_stockham = (total_stockham / len(all_votes))
     
-    
+ #Degette
     for i in all_votes:
         if i == 'Diana DeGette':
             degette.append(i)
     total_degette = len(degette)
     percent_degette = (total_degette / len(all_votes)) 
     
-        
+#Doane     
     for i in all_votes:
         if i == 'Raymon Anthony Doane':
             doane.append(i)
     total_doane = len(doane)
     percent_doane = (total_doane / len(all_votes)) 
    
-    
+ #Find the winner among the candidates   
 
     if total_doane > total_degette and total_stockham:
         Winner.append('Raymon Anthony Doane')
@@ -67,7 +68,9 @@ with open(file_to_load) as election_data:
         Winner.append('Diana DeGette')
     elif total_stockham > total_degette and total_doane:
         Winner.append('Charles Casper Stockham')
-         
+
+ #organize output of information
+
 output1 = "Election Results"
 output2 = '----------------------'
 output3 = 'Total Votes: ' f'{total_votes}'

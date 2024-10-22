@@ -29,10 +29,6 @@ with open(file_to_load) as financial_data:
     #Skip the header row
     header = next(reader)
 
-    # Extract first row to avoid appending to net_change_list
-    
-
-    # Track the total and net change
 
 
     # Process each row of data
@@ -75,14 +71,10 @@ with open(file_to_load) as financial_data:
             changes.append(change)
     average_change = round(sum(changes) / len(changes), ndigits= 2)
 
-# Generate the output summary
-#output_summary = {}
-#output_summary = dict()
-#output_summary = {'Total Months': f'{total_months}','Total': f'{total_net}','Average':f'{average_change}','Greatest Increase in Profits': f'{greatest_increase,greatest_increase_date}','Greatest Decrease in Profits': f'{greatest_decrease,greatest_decrease_date}'}
+
+# organize output of information
 
 
-
-# Print the output
 output1 = "Financial Analysis"
 output2 = "-----------------"
 output3 = 'Total Months: ' f'{total_months}'
@@ -91,7 +83,8 @@ output5 = 'Average: ' f'${average_change}'
 output6 = 'Greatest Increase in Profits: ' f' {greatest_increase_date} (${greatest_increase})'
 output7 = 'Greatest Decrease in Profits: ' f' {greatest_decrease_date} (${greatest_decrease})'
 
-# Write the results to a text file
+#print the analysis to the terminal
+
 with open(file_to_output, "w") as txt_file:
 
     print(output1)
@@ -102,7 +95,7 @@ with open(file_to_output, "w") as txt_file:
     print(output6)
     print(output7)
 
-
+# Write the results to a text file
 
     txt_file.write(output1)
     txt_file.write(f'\n{output2}')
