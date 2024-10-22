@@ -10,13 +10,13 @@ file_to_load = os.path.join("Resources", "election_data.csv")  # Input file path
 file_to_output = os.path.join("analysis", "election_analysis.txt")  # Output file path
 
 # Initialize variables to track the election data
-total_votes = 0  # Track the total number of votes cast
-
-# Define lists and dictionaries to track candidate names and vote counts
-
-
-# Winning Candidate and Winning Count Tracker
-
+votes = []
+all_votes = []
+stockham = []
+degette = []
+doane = []
+Winner = []
+  
 
 # Open the CSV file and process it
 with open(file_to_load) as election_data:
@@ -31,40 +31,85 @@ with open(file_to_load) as election_data:
         # Print a loading indicator (for large datasets)
         print(". ", end="")
 
-        # Increment the total vote count for each row
+       
+        all_votes.append(row[2])
+        votes.append(row[0])
+    total_votes = len(votes)
 
 
-        # Get the candidate's name from the row
+
+     
+    for i in all_votes:
+        if i == 'Charles Casper Stockham':
+            stockham.append(i)
+    total_stockham = len(stockham)
+    percent_stockham = (total_stockham / len(all_votes))
+    
+    
+    for i in all_votes:
+        if i == 'Diana DeGette':
+            degette.append(i)
+    total_degette = len(degette)
+    percent_degette = (total_degette / len(all_votes)) 
+    
+        
+    for i in all_votes:
+        if i == 'Raymon Anthony Doane':
+            doane.append(i)
+    total_doane = len(doane)
+    percent_doane = (total_doane / len(all_votes)) 
+   
+    
+
+    if total_doane > total_degette and total_stockham:
+        Winner.append('Raymon Anthony Doane')
+    elif total_degette > total_doane and total_stockham:
+        Winner.append('Diana DeGette')
+    elif total_stockham > total_degette and total_doane:
+        Winner.append('Charles Casper Stockham')
+         
+output1 = "Election Results"
+output2 = '----------------------'
+output3 = 'Total Votes: ' f'{total_votes}'
+output4 = '----------------------'
+output5 = 'Charles Casper Stockham: ' f'{percent_stockham: .3%} ({total_stockham})'
+output6 = 'Diana Degette: ' f'{percent_degette: .3%} ({total_degette})'
+output7 = 'Raymon Anthony Doane: ' f'{percent_doane: .3%} ({total_doane})'
+output8 = '----------------------'
+output9 = 'Winner: ' f'{Winner}'
 
 
-        # If the candidate is not already in the candidate list, add them
 
-
-        # Add a vote to the candidate's count
 
 
 # Open a text file to save the output
 with open(file_to_output, "w") as txt_file:
 
     # Print the total vote count (to terminal)
-
-
+    print(output1)
+    print(output2)
+    print(output3)
+    print(output4)
+    print(output5)
+    print(output6)
+    print(output7)
+    print(output8)
+    print(output9)
+    
+     
     # Write the total vote count to the text file
+    txt_file.write(output1) 
+    txt_file.write(f'\n{output2}')
+    txt_file.write(f'\n{output3}')
+    txt_file.write(f'\n{output4}')
+    txt_file.write(f'\n{output5}')
+    txt_file.write(f'\n{output6}')
+    txt_file.write(f'\n{output7}')
+    txt_file.write(f'\n{output8}')
+    txt_file.write(f'\n{output9}')
 
 
-    # Loop through the candidates to determine vote percentages and identify the winner
+    
 
-
-        # Get the vote count and calculate the percentage
-
-
-        # Update the winning candidate if this one has more votes
-
-
-        # Print and save each candidate's vote count and percentage
-
-
-    # Generate and print the winning candidate summary
-
-
-    # Save the winning candidate summary to the text file
+    
+    
