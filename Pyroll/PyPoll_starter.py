@@ -15,7 +15,8 @@ all_votes = []
 stockham = []
 degette = []
 doane = []
-Winner = []
+Winner = ''
+highest_votes = 0
   
 
 # Open the CSV file and process it
@@ -61,14 +62,12 @@ with open(file_to_load) as election_data:
     percent_doane = (total_doane / len(all_votes)) 
    
  #Find the winner among the candidates   
-
-    if total_doane > total_degette and total_stockham:
-        Winner.append('Raymon Anthony Doane')
-    elif total_degette > total_doane and total_stockham:
-        Winner.append('Diana DeGette')
-    elif total_stockham > total_degette and total_doane:
-        Winner.append('Charles Casper Stockham')
-
+    votes2 = {'Diana Degette': total_degette,'Raymon Anthony Doane':total_doane,'Charles Casper Stockham':total_stockham}
+    for candidate, vote_count in votes2.items():
+        if vote_count > highest_votes:
+            highest_votes = vote_count
+            Winner = candidate
+        
  #organize output of information
 
 output1 = "Election Results"

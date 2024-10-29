@@ -40,13 +40,11 @@ with open(file_to_load) as financial_data:
             months.append(row[0])
     total_months = len(months)
     
-    # Track the net change
-
-    
-    data = list(zip(months, profit_loss))
+   
 
     # Calculate the greatest increase in profits (month and amount)
-    # Greatest_increase -= int(row[1])
+    
+    data = list(zip(months, profit_loss))
     for b in range(1, len(data)):
             change2 = data[b][1] - data[b-1][1]
             if change2 > greatest_increase:
@@ -55,7 +53,7 @@ with open(file_to_load) as financial_data:
             
     
     # Calculate the greatest decrease in losses (month and amount)
-    # Greatest_decrease -= int(row[1])
+   
 
     for b in range(1, len(data)):
             change3 = data[b][1] - data[b-1][1]
@@ -85,18 +83,16 @@ output7 = 'Greatest Decrease in Profits: ' f' {greatest_decrease_date} (${greate
 
 #print the analysis to the terminal
 
-with open(file_to_output, "w") as txt_file:
-
-    print(output1)
-    print(output2)
-    print(output3)
-    print(output4)
-    print(output5)
-    print(output6)
-    print(output7)
+print(output1)
+print(output2)
+print(output3)
+print(output4)
+print(output5)
+print(output6)
+print(output7)
 
 # Write the results to a text file
-
+with open(file_to_output, "w") as txt_file:
     txt_file.write(output1)
     txt_file.write(f'\n{output2}')
     txt_file.write(f'\n{output3}')
