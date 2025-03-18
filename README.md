@@ -6,7 +6,7 @@
 This part of the assignment entails creating a Python script to analyze the financial records of a company. It includes a financial dataset with Date and Profit/Losses information. The Python script analyzes the records to calculate the total number of months included, the net total amount of "Profit/Losses" over the entire period, the average change in "Profit/Losses" over the entire period, the greatest increase and decrease in profits over the entire period.
 
 ### Poll Data Description:
-This part of the assignment 
+This part of the assignment includes a Python script that analyzes poll data of a state. It includes a dataset with the County as well as the candidates' names. The script calculates the total number of votes as well as the amount of votes per candidate and their percentage of votes relative to the total number of votes. The script also includes a for loop that finds the winner.
 
 ### Language:
 Python
