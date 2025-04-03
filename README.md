@@ -10,6 +10,9 @@ This part of the assignment entails creating a Python script to analyze the fina
 ### Poll Data Description:
 This part of the assignment includes a Python script that analyzes poll data of a state. It includes a dataset with the County as well as the candidates' names. The script calculates the total number of votes as well as the amount of votes per candidate and their percentage of votes relative to the total number of votes. The script also includes a for loop that finds the winner.
 
+This ReadME's description is [copyrighted](https://github.com/cindyd97/Work/blob/main/LICENSE). 
+Unauthorized use or reproduction is prohibited.
+
 ### Language:
 Python
 
